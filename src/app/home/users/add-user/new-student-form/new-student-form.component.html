@@ -25,20 +25,31 @@
   </div>
 
   <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">Graduation</label>
+    <ng-select placeholder="Student Graduation">
+      <ng-option value="ug">UG</ng-option>
+      <ng-option value="pg">PG</ng-option>
+    </ng-select>
+  </div>
+
+  <div class="col-lg-4 my-1 my-lg-0">
     <label class="fw-bold text-uppercase mb-1">Department</label>
     <input type="text" class="form-control border-2 input" placeholder="Student Department" />
   </div>
+
   
+</div>
+<div class="row my-lg-3">
+
   <div class="col-lg-4 my-1 my-lg-0">
     <label class="fw-bold text-uppercase mb-1">Year of Study</label>
     <ng-select placeholder="Student Year of Study">
       <ng-option>I</ng-option>
       <ng-option>II</ng-option>
-      <ng-option>III</ng-option>
+      <ng-option *ngIf="false">III</ng-option>
     </ng-select>
   </div>
-</div>
-<div class="row my-lg-3">
+
   <div class="col-lg-4 my-1 my-lg-0">
     <label class="fw-bold text-uppercase mb-1">Gender</label>
     <ng-select placeholder="Student Gender">

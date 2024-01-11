@@ -36,4 +36,8 @@ export class UserService {
   createStaffUser(data: any) {
     return this.http.post(`${this.root}/staff/create`, data)
   }
+
+  createAdminUser(data: any) {
+    return this.http.post(`${this.root}/admin/create`, data)
+  }
 }
