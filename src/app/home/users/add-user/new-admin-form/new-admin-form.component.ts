@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-admin-form',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-admin-form.component.css']
 })
 export class NewAdminFormComponent {
-
+  @Input() privilege!: string
 }

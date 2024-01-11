@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-student-form',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-student-form.component.css']
 })
 export class NewStudentFormComponent {
-
+  @Input() privilege!: string
 }

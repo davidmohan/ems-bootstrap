@@ -16,7 +16,7 @@
       <i class=""></i>
       <a routerLink="event-management" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">Event Management</a>
     </div>
-    <div class="mb-3 " (click)="closeNav()" *ngIf="!(user.privilege === 'std')">
+    <div class="mb-3 " (click)="closeNav()" *ngIf="!(user?.privilege === 'std')">
       <i class=""></i>
       <a routerLink="users" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">Users</a>
     </div>

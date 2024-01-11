@@ -32,7 +32,7 @@ import { AllFeedbacksComponent } from './home/event-management/feedbacks/all-fee
 import { ViewFeedbackComponent } from './home/event-management/feedbacks/view-feedback/view-feedback.component';
 import { LeftMenuComponent } from './home/left-menu/left-menu.component';
 import { Error404Component } from './error-404/error-404.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgSelectModule,
     SweetAlert2Module.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

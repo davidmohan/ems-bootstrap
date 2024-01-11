@@ -3,10 +3,23 @@
     <span class="heading fw-bold">Available Users</span>
     <span class="sub-heading">Staffs & Students</span>
   </div>
+  <div class="row my-lg-3">
+  
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Filter</label>
+      <form [formGroup]="userTypeForm">
+        <ng-select placeholder="Select User Type" formControlName="user_type" (change)="onUserTypeChange()">
+          <ng-option *ngFor="let privilege of privileges;" [value]="privilege.value">
+            {{ privilege.label }}
+          </ng-option>
+        </ng-select>
+      </form>
+    </div>
+
   <div class="w-100 d-flex justify-content-end mt-3">
-    <button routerLink="add-user" class="btn btn-primary py-1 px-4 h6 text-uppercase fw-bold">
+    <button routerLink="add-user" class="btn btn-primary py-2 px-4 h6 text-uppercase fw-bold">
       <i class="fas fa-plus me-1"></i>
-      <span>Add User</span>
+      <span>Create User</span>
     </button>
   </div>
   <div class="w-100 overflow-x-auto mt-2">
@@ -22,12 +35,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th class="text-center">1</th>
-          <td class="">Mohan A</td>
-          <td class="">Student</td>
-          <td class="">MCA</td>
-          <td class="">22pa40@anjaconline.org</td>
+        <tr *ngFor="let avlUser of availableUsers; index as index">
+          <th class="text-center">
+            {{ index + 1 }}
+          </th>
+          <td class="">
+            {{ avlUser.first_name + avlUser.last_name }}
+          </td>
+          <td class="">
+            {{ avlUser.privilege }}
+          </td>
+          <td class="">
+            {{ avlUser.dept }}
+          </td>
+          <td class="">
+            {{ avlUser.email }}
+          </td>
           <td class="">
             <div class="d-flex justify-content-center">
               <button routerLink="modify-user" class="btn btn-warning me-1 py-0">
@@ -40,7 +63,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="7" class="text-center">
+          <td *ngIf="availableUsers.length == 0" colspan="7" class="text-center">
             No Record Found
           </td>
         </tr>

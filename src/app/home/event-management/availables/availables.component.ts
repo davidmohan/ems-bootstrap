@@ -10,7 +10,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 })
 export class AvailablesComponent {
   user!: any
-  availableEvents!: any
+  availableEvents: any = []
   constructor(private userService: UserService, private eventService: EventsService) {
     this.user = userService.getUserFromApp()
     this.getAllAvailableEvents()
