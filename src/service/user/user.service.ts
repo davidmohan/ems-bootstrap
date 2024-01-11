@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import { Environment } from 'src/app/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  serverUrl: string = 'http://localhost:5000/ems'
+  // serverUrl: string = 'http://localhost:5000/ems'
   // serverUrl: string = 'http://ems-express.up.railway.app/ems'
+  serverUrl: string = Environment.url
   root: string = `${this.serverUrl}`
   user!: any
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   authUser(data: any) {
     return this.http.get(`${this.root}/user/auth/${data.email}/${data.password}`)
