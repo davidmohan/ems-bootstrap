@@ -3,7 +3,7 @@
     <span class="heading fw-bold ">Available Events</span>
     <span class="sub-heading">View</span>
   </div>
-  <div class="w-100 d-flex justify-content-end mt-3">
+  <div class="w-100 d-flex justify-content-end mt-3" *ngIf="user?.privilege != 'std'">
     <button routerLink="add-event" class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6">
       <i class="fas fa-plus me-1"></i>
       <span>Add Event</span>

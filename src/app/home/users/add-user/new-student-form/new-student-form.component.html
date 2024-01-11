@@ -1,72 +1,73 @@
-<div class="d-flex flex-column">
-  <span class="heading fw-bold">Student Creation Form</span>
-  <span class="sub-heading">Settings</span>
-</div>
-<div class="row my-lg-3">
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">First Name</label>
-    <input type="text" class="form-control border-2 input" placeholder="Student First Name" />
+<form [formGroup]="newStudentForm" (submit)="onStudentCreationFromSubmit()">
+  <div class="d-flex flex-column">
+    <span class="heading fw-bold">Student Creation Form</span>
+    <span class="sub-heading">Settings</span>
   </div>
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Last Name</label>
-    <input type="text" class="form-control border-2 input" placeholder="Student Last Name" />
-  </div>
+  <div class="row my-lg-3">
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">First Name</label>
+      <input formControlName="first_name" type="text" class="form-control border-2 input" placeholder="Student First Name" />
+    </div>
   
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Register Number</label>
-    <input type="text" class="form-control border-2 input" placeholder="Student Register Number" />
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Last Name</label>
+      <input formControlName="last_name" type="text" class="form-control border-2 input" placeholder="Student Last Name" />
+    </div>
+    
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Register Number</label>
+      <input formControlName="reg_no" type="text" class="form-control border-2 input" placeholder="Student Register Number" />
+    </div>
   </div>
-</div>
-<div class="row my-lg-3">
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Email</label>
-    <input type="email" class="form-control border-2 input" placeholder="Student Email Address" />
-  </div>
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Graduation</label>
-    <ng-select placeholder="Student Graduation">
-      <ng-option value="ug">UG</ng-option>
-      <ng-option value="pg">PG</ng-option>
-    </ng-select>
-  </div>
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Department</label>
-    <input type="text" class="form-control border-2 input" placeholder="Student Department" />
-  </div>
-
+  <div class="row my-lg-3">
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Email</label>
+      <input formControlName="email" type="email" class="form-control border-2 input" placeholder="Student Email Address" />
+    </div>
   
-</div>
-<div class="row my-lg-3">
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Year of Study</label>
-    <ng-select placeholder="Student Year of Study">
-      <ng-option>I</ng-option>
-      <ng-option>II</ng-option>
-      <ng-option *ngIf="false">III</ng-option>
-    </ng-select>
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Graduation</label>
+      <ng-select placeholder="Student Graduation"  formControlName="graduation">
+        <ng-option value="ug">UG</ng-option>
+        <ng-option value="pg">PG</ng-option>
+      </ng-select>
+    </div>
+  
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Department</label>
+      <input  formControlName="dept" type="text" class="form-control border-2 input" placeholder="Student Department" />
+    </div>
+  
+    
   </div>
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">Gender</label>
-    <ng-select placeholder="Student Gender">
-      <ng-option>Male</ng-option>
-      <ng-option>Female</ng-option>
-      <ng-option>Others</ng-option>
-    </ng-select>
+  <div class="row my-lg-3">
+  
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Year of Study</label>
+      <ng-select placeholder="Student Year of Study"  formControlName="year_of_study">
+        <ng-option value="1">I</ng-option>
+        <ng-option value="2">II</ng-option>
+        <ng-option *ngIf="newStudentForm.get('graduation')?.value === 'ug'">III</ng-option>
+      </ng-select>
+    </div>
+  
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">Gender</label>
+      <ng-select placeholder="Student Gender"  formControlName="gender">
+        <ng-option value="m">Male</ng-option>
+        <ng-option value="f">Female</ng-option>
+      </ng-select>
+    </div>
+  
+    <div class="col-lg-4 my-1 my-lg-0">
+      <label class="fw-bold text-uppercase mb-1">One-Time Password</label>
+      <input formControlName="password" type="text" class="form-control border-2 input" placeholder="Student Account One-Time Password" />
+    </div>
   </div>
-
-  <div class="col-lg-4 my-1 my-lg-0">
-    <label class="fw-bold text-uppercase mb-1">One-Time Password</label>
-    <input type="text" class="form-control border-2 input" placeholder="Student Account One-Time Password" />
+  <hr>
+  <div class="w-100 d-flex justify-content-lg-end flex-lg-row flex-column">
+    <button class="btn btn-primary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6" [disabled]="newStudentForm.invalid">
+      Create Student
+    </button>
   </div>
-</div>
-<hr>
-<div class="w-100 d-flex justify-content-lg-end flex-lg-row flex-column">
-  <button class="btn btn-primary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6">
-    Create Student
-  </button>
-</div>
+</form>

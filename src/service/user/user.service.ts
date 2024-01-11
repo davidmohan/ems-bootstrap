@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
 export class UserService {
   serverUrl: string = 'http://localhost:5000/ems'
   // serverUrl: string = 'http://ems-express.up.railway.app/ems'
-  root: string = `${this.serverUrl}/`
+  root: string = `${this.serverUrl}`
   user!: any
   constructor(private http: HttpClient) { }
 
@@ -40,4 +40,9 @@ export class UserService {
   createAdminUser(data: any) {
     return this.http.post(`${this.root}/admin/create`, data)
   }
+  
+  createStudentUser(data: any) {
+    return this.http.post(`${this.root}/std/create`, data)
+  }
+
 }
