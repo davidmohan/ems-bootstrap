@@ -1,0 +1,28 @@
+<div class="w-100">
+  <div class="d-flex flex-column">
+    <span class="heading fw-bold">Create an New User</span>
+    <span class="sub-heading">Form</span>
+  </div>
+  <div class="w-100 mt-lg-1 mt-2">
+    <div class="row my-lg-3">
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase mb-1">User Type</label>
+        <ng-select placeholder="Select User Type">
+          <ng-option> Admin </ng-option>
+          <ng-option> Staff </ng-option>
+          <ng-option> Student </ng-option>
+        </ng-select>
+      </div>
+    </div>
+    <hr class="mb-2">
+    <div *ngIf="false">
+      <app-new-student-form></app-new-student-form>      
+    </div>
+    <div *ngIf="false">
+      <app-new-staff-form></app-new-staff-form>      
+    </div>
+    <div>
+      <app-new-admin-form></app-new-admin-form>      
+    </div>
+  </div>
+</div>

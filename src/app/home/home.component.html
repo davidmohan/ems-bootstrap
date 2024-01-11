@@ -1,0 +1,28 @@
+<div class="w-100 vh-100 d-flex overflow-hidden ">
+  <div [ngClass]="'col-lg-2 shadow-sm z-0 ' + ((NavClick == true) ? 'col-12 d-lg-block' : 'd-none d-lg-block')"   >
+    <app-left-menu (closeNavEvent)="closeNav($event)" [user]="user"></app-left-menu>
+  </div>
+  <div class="col-12 col-lg-10  bg-primary-subtle overflow-y-scroll">
+    <div class="col-12 bg-white py-3 px-5 d-flex justify-content-between align-items-center shadow-sm">
+      <div class="d-md-none d-block">
+        <button class="fs-5 btn  py-0 px-2" (click)="openNav()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="w-100 d-flex justify-content-end align-items-center">
+        <span class="px-3">
+          <i class="fas fa-user fs-4 "></i>
+        </span>
+        <span class="fw-bold text-danger" (click)="logout()" style="cursor:pointer;">
+          <i class="fas fa-power-off fs-4"></i>
+        </span>
+      </div>
+    </div>
+    <div class="mx-lg-4 my-lg-4 mx-3 my-3 ">
+      <!-- <label class="fw-medium">EMS / Dashboard</label> -->
+      <div class="py-4 px-4 bg-white rounded-2 ">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

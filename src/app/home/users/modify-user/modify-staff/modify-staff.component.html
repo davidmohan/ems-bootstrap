@@ -1,0 +1,47 @@
+<div class="d-flex flex-column">
+  <span class="heading fw-bold">Modify Existing Staff</span>
+  <span class="sub-heading">Settings</span>
+</div>
+<div class="row my-lg-3">
+  <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">First Name</label>
+    <input type="text" class="form-control border-2 input" placeholder="Student First Name" />
+  </div>
+
+  <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">Last Name</label>
+    <input type="text" class="form-control border-2 input" placeholder="Student Last Name" />
+  </div>
+
+  <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">Email</label>
+    <input type="email" class="form-control border-2 input" placeholder="Student Email Address" />
+  </div>
+</div>
+<div class="row my-lg-3">
+
+  <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">Department</label>
+    <input type="text" class="form-control border-2 input" placeholder="Student Department" />
+  </div>
+  
+  <div class="col-lg-4 my-1 my-lg-0">
+    <label class="fw-bold text-uppercase mb-1">Gender</label>
+    <ng-select placeholder="Student Gender">
+      <ng-option>Male</ng-option>
+      <ng-option>Female</ng-option>
+      <ng-option>Others</ng-option>
+    </ng-select>
+  </div>
+
+</div>
+
+<hr>
+<div class="w-100 d-flex justify-content-lg-end flex-lg-row flex-column">
+  <button routerLink="/users" class="btn btn-secondary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6 mx-lg-2">
+    Back
+  </button>
+  <button class="btn btn-primary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6">
+    Update Staff
+  </button>
+</div>

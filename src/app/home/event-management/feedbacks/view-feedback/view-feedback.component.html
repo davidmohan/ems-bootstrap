@@ -1,0 +1,124 @@
+<div class="w-100">
+  <div class="d-flex flex-column">
+    <span class="heading fw-bold">Student Feedback</span>
+    <span class="sub-heading">Details</span>
+  </div>
+  <div class="w-100 mt-lg-1 mt-2">
+    <div class="row my-lg-3">
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">First Name</label>
+        <input
+          type="text"
+          class="form-control border-2 input bg-white text-secondary"
+          disabled
+          value="value"
+        />
+      </div>
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">Last Name</label>
+        <input
+          type="text"
+          class="form-control border-2 input bg-white text-secondary"
+          value="value"
+          disabled
+        />
+      </div>
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">Register Number</label>
+        <input
+          type="text"
+          class="form-control border-2 input bg-white text-secondary"
+          value="value"
+          disabled
+        />
+      </div>
+    </div>
+    <div class="row my-lg-3">
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">Department</label>
+        <input
+          type="text"
+          class="form-control border-2 input bg-white text-secondary"
+          disabled
+          value="value"
+        />
+      </div>
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">Year of Study</label>
+        <input
+          type="text"
+          value="value"
+          class="form-control border-2 input bg-white text-secondary"
+          disabled
+        />
+      </div>
+      <div class="col-lg-4 my-1 my-lg-0">
+        <label class="fw-bold text-uppercase">Email</label>
+        <input
+          value="value"
+          type="text"
+          class="form-control border-2 input bg-white text-secondary"
+          disabled
+        />
+      </div>
+    </div>
+    <hr class="mb-2" />
+    <div class="d-flex flex-column">
+      <span class="heading fw-bold">About Event</span>
+      <span class="sub-heading">Form</span>
+      <div class="w-100 mt-lg-1 mt-2">
+        <div class="row my-lg-3">
+          <div class="col-lg-4 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase"> Hospitality </label>
+            <input
+              type="text"
+              class="form-control border-2 input bg-white text-secondary"
+              disabled
+              value="value"
+            />
+          </div>
+
+          <div class="col-lg-4 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase"> Guidence </label>
+            <input
+              type="text"
+              class="form-control border-2 input bg-white text-secondary"
+              disabled
+              value="value"
+            />
+          </div>
+
+          <div class="col-lg-4 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase"> Experience </label>
+            <input
+              type="text"
+              class="form-control border-2 input bg-white text-secondary"
+              disabled
+              [value]="'value'"
+            />
+          </div>
+        </div>
+        <div class="row my-lg-3 my-2">
+          <div class="col-lg-12 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase"> Opinion </label>
+            <textarea
+              rows="3"
+              placeholder="Your Opinion"
+              class="form-control border-2 text-secondary bg-white"
+              [value]="'value'"
+              disabled
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-0 mb-2" />
+      <div class="w-100 d-flex justify-content-end">
+        <button
+          routerLink="../"
+          class="btn btn-secondary text-uppercase fw-bold px-4 py-1 h6 mx-2">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

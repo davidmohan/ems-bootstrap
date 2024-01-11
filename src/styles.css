@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+@import '~sweetalert2/dist/sweetalert2.css';
+
+@import url('./assets/dropdown.css');
+
+@import url('./assets/bootstrap.css');
+
+* {
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+  max-width: 5px;
+  min-width: 5px;
+  max-height: 4px;
+  min-height: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #aeaeae;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+label, .label {
+  font-size: 13px !important;
+  color: #737F9E !important;
+}
+
+.h6 {
+  font-size: 13px !important;
+}
+
+.heading {
+  font-size: 20px !important;
+}
+
+.sub-heading {
+  font-size: 14px !important;
+  color: #938e8e !important;
+  margin-top: -2px !important;
+}
+
+.input {
+  min-height: 45px !important;
+  max-height: 45px !important;
+}
+
+.t-col-3 {
+  width: 200px !important;
+}

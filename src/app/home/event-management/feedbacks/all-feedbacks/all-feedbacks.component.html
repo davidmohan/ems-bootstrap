@@ -1,0 +1,55 @@
+<div class="w-100">
+  <div class="d-flex flex-column">
+    <span class="heading fw-bold">Feedback Book</span>
+    <span class="sub-heading">Students</span>
+  </div>
+  <div class="w-100 d-flex justify-content-end mt-3">
+    <button routerLink="/event-management" class="btn btn-secondary py-1 mx-2 h6 text-uppercase fw-bold">
+      Back
+    </button>
+    <button class="btn btn-primary py-1 h6 text-uppercase fw-bold">
+      <i class="fas fa-download me-1"></i>
+      <span>Download Feedbacks</span>
+    </button>
+  </div>
+  <div class="w-100 overflow-x-auto mt-2">
+    <table class="table table-bordered overflow-x-scroll ">
+      <thead>
+        <tr class="label text-uppercase text-center">
+          <th class="" style="min-width: 80px;">Sno</th>
+          <th class="" style="min-width: 180px;">Name</th>
+          <th class="" style="min-width: 180px;">Register Number</th>
+          <th class="" style="min-width: 120px;">Department</th> 
+          <th class="" style="min-width: 120px;">Hospitality</th>
+          <th class="" style="min-width: 120px;">Guidence</th>
+          <th class="" style="min-width: 80px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="text-center">1</th>
+          <td class="">Mohan A</td>
+          <td class="">22PA40</td>
+          <td class="">MCA</td>
+          <td class="">Very Good</td>
+          <td class="">Very Good</td>
+          <td class="">
+            <div class="d-flex justify-content-center">
+              <button routerLink="view" class="btn btn-warning me-1 py-0">
+                <i class="fas fa-book-bookmark"></i>
+              </button>
+              <button class="btn btn-danger py-0" >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" class="text-center">
+            No Record Found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

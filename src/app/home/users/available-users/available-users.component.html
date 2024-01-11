@@ -1,0 +1,50 @@
+<div class="w-100">
+  <div class="d-flex flex-column">
+    <span class="heading fw-bold">Available Users</span>
+    <span class="sub-heading">Staffs & Students</span>
+  </div>
+  <div class="w-100 d-flex justify-content-end mt-3">
+    <button routerLink="add-user" class="btn btn-primary py-1 px-4 h6 text-uppercase fw-bold">
+      <i class="fas fa-plus me-1"></i>
+      <span>Add User</span>
+    </button>
+  </div>
+  <div class="w-100 overflow-x-auto mt-2">
+    <table class="table table-bordered overflow-x-scroll ">
+      <thead>
+        <tr class="label text-uppercase text-center">
+          <th class="" style="min-width: 80px;">Sno</th>
+          <th class="" style="min-width: 180px;">Name</th>
+          <th class="" style="min-width: 120px;">Type</th>
+          <th class="" style="min-width: 120px;">Department</th> 
+          <th class="" style="min-width: 240px;">Email</th>
+          <th class="" style="min-width: 80px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="text-center">1</th>
+          <td class="">Mohan A</td>
+          <td class="">Student</td>
+          <td class="">MCA</td>
+          <td class="">22pa40@anjaconline.org</td>
+          <td class="">
+            <div class="d-flex justify-content-center">
+              <button routerLink="modify-user" class="btn btn-warning me-1 py-0">
+                <i class="fas fa-pencil"></i>
+              </button>
+              <button class="btn btn-danger py-0" (click)="toDeleteUser()">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" class="text-center">
+            No Record Found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

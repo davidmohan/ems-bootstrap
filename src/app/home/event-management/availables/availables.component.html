@@ -1,0 +1,74 @@
+<div class="w-100">
+  <div class="d-flex flex-column ">
+    <span class="heading fw-bold ">Available Events</span>
+    <span class="sub-heading">View</span>
+  </div>
+  <div class="w-100 d-flex justify-content-end mt-3">
+    <button routerLink="add-event" class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6">
+      <i class="fas fa-plus me-1"></i>
+      <span>Add Event</span>
+    </button>
+  </div>
+  <div class="w-100 overflow-x-auto mt-2">
+    <div class="">
+      <table class="w-auto table table-bordered overflow-x-scroll ">
+        <thead>
+          <tr class="label text-uppercase text-center">
+            <th class="col-1" style="min-width: 80px;">Sno</th>
+            <th class="col-1" style="min-width: 200px;">Event Name</th>
+            <th class="col-2" style="min-width: 200px;">Event Type</th>
+            <th class="col-2" style="min-width: 200px;">Start Date</th>
+            <th class="col-2" style="min-width: 200px;">End Date</th>
+            <th class="col-2" style="min-width: 150px;" *ngIf="user.privilege != 'std'">Enable Event</th>
+            <th class="col-2" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of availableEvents;index as index">
+            <th class="col-1 text-center"> {{ index + 1 }} </th>
+            <td class="">{{ event.event_name }}</td>
+            <td class="">{{ event.event_type }}</td>
+            <td class="">{{ event.start_date }}</td>
+            <td class="">{{ event.end_data }}</td>
+            <td class=""  *ngIf="user.privilege != 'std'">
+              <div class="form-check form-switch d-flex justify-content-center">
+                <input type="checkbox" class="form-check-input fs-5 border-2" role="switch">
+              </div>
+            </td>
+            <td class="" *ngIf="user.privilege != 'std'">
+              <div class="d-flex justify-content-center">
+                <button routerLink="registrations" class="btn btn-primary py-0">
+                  <i class="fas fa-book"></i>
+                </button>
+                <button routerLink="feedbacks" class="btn btn-secondary mx-1 py-0">
+                  <i class="fas fa-cash-register"></i>
+                </button>
+                <button routerLink="modify-event" class="btn btn-warning py-0 ">
+                  <i class="fas fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger ms-1 py-0" (click)="deleteTheEvent()">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+            <td class="" *ngIf="user.privilege == 'std'">
+              <div class="d-flex justify-content-center">
+                <button routerLink="registration-form" class="btn btn-primary py-0">
+                  <i class="fas fa-book"></i>
+                </button>
+                <button routerLink="feedback-form" class="btn btn-secondary mx-1 py-0">
+                  <i class="fas fa-cash-register"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="availableEvents.length == 0">
+            <td colspan="7" class="text-center">
+              No Record Found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.detail-data {
+  color: #1c2a4d;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.event-summary {
+  text-align: justify;
+  font-size: 15px !important;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+  text-indent: 50px;
+}
