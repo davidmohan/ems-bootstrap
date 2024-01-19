@@ -20,4 +20,9 @@ export class EventsService {
   getAllEvents() {
     return this.http.get(`${this.root}/all`)
   }
+
+  createEvent(data: any) {
+    return this.http.post(`${this.root}/create`, data)
+  }
+
 }

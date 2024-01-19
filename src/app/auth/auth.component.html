@@ -3,20 +3,20 @@
     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3R8ZW58MHx8MHx8fDA%3D" alt="" class="w-100 vh-100 ">
   </div>
   <div class="col-12 position-absolute">
-    <form class="col-12 d-flex justify-content-center align-items-center flex-column ">
+    <form [formGroup]="loginForm" (submit)="onLoginSubmit()" class="col-12 d-flex justify-content-center align-items-center flex-column ">
       <div class="my-3">
         <span class="fw-bold text-uppercase fs-4">EMS - Login</span>
       </div>
       <div class="my-2 col-8">
         <label for="email" class="fw-bold ">Email <span class="text-danger ">*</span></label>
-        <input type="text" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
+        <input formControlName="email" type="text" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
       </div>
       <div class="my-2 col-8">
         <label for="password" class="fw-bold ">Password  <span class="text-danger ">*</span></label>
-        <input type="password" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
+        <input formControlName="password" type="password" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
       </div>
       <div class="my-2 col-8">
-        <button class="btn btn-primary fw-bold col-12 py-2 ">
+        <button [class]="'btn btn-primary fw-bold col-12 py-2 ' + (loginForm.invalid ? 'btn-dark bg-dark' : 'btn-primary')" [disabled]="loginForm.invalid">
           Login
         </button>
       </div>
