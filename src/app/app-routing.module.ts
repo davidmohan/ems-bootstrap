@@ -21,6 +21,7 @@ import { ViewRegistrationComponent } from './home/event-management/registrations
 import { AllFeedbacksComponent } from './home/event-management/feedbacks/all-feedbacks/all-feedbacks.component';
 import { ViewFeedbackComponent } from './home/event-management/feedbacks/view-feedback/view-feedback.component';
 import { Error404Component } from './error-404/error-404.component';
+import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
 
 
 const routes: Routes = [
@@ -44,10 +45,11 @@ const routes: Routes = [
     { path:'users', component:UsersComponent, children: [
       { path:'', component: AvailableUsersComponent, },
       { path:'add-user', component: AddUserComponent },
-      { path:'modify-user', component: ModifyUserComponent },
+      { path:'modify/:id', component: ModifyUserComponent },
     ]},
   ]},
   { path:'auth', component:AuthComponent },
+  { path: 'pdf-upload', component: PdfUploadComponent },
   { path:'**', component:Error404Component },
 ]
 

@@ -1,11 +1,11 @@
 <div class="w-100">
-    <div *ngIf="true">
-      <app-modify-student></app-modify-student>      
+    <div *ngIf="userData.privilege === 'std'">
+      <app-modify-student [userData]="userData"></app-modify-student>      
     </div>
-    <div *ngIf="false">
-      <app-modify-staff></app-modify-staff>      
+    <div *ngIf="userData.privilege === 'staff'">
+      <app-modify-staff [userData]="userData"></app-modify-staff>      
     </div>
-    <div *ngIf="false">
-      <app-modify-admin></app-modify-admin>      
+    <div *ngIf="userData.privilege === 'admin'">
+      <app-modify-admin [userData]="userData"></app-modify-admin>      
     </div>
 </div>

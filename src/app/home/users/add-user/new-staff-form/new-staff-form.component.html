@@ -6,29 +6,33 @@
   <div class="row my-lg-3">
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">First Name</label>
-      <input formControlName="first_name" type="text" class="form-control border-2 input" placeholder="Student First Name" />
+      <input formControlName="first_name" type="text" class="form-control border-2 input" placeholder="Staff First Name" />
     </div>
   
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Last Name</label>
-      <input formControlName="last_name" type="text" class="form-control border-2 input" placeholder="Student Last Name" />
+      <input formControlName="last_name" type="text" class="form-control border-2 input" placeholder="Staff Last Name" />
     </div>
   
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Email</label>
-      <input formControlName="email" type="email" class="form-control border-2 input" placeholder="Student Email Address" />
+      <input formControlName="email" type="email" class="form-control border-2 input" placeholder="Staff Email Address" />
     </div>
   </div>
   <div class="row my-lg-3">
   
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Department</label>
-      <input formControlName="dept" type="text" class="form-control border-2 input" placeholder="Student Department" />
+      <ng-select placeholder="Staff Department" formControlName="dept">
+        <ng-option *ngFor="let dept of depts; index as index" [value]="dept.value">
+          {{ dept.dept }}
+        </ng-option>
+      </ng-select>
     </div>
     
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Gender</label>
-      <ng-select placeholder="Student Gender" formControlName="gender">
+      <ng-select placeholder="Staff Gender" formControlName="gender">
         <ng-option value="m">Male</ng-option>
         <ng-option value="f">Female</ng-option>
       </ng-select>
@@ -37,13 +41,13 @@
   
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">One-Time Password</label>
-      <input formControlName="password" type="text" class="form-control border-2 input" placeholder="Student Account One-Time Password" />
+      <input formControlName="password" type="text" class="form-control border-2 input" placeholder="Staff Account One-Time Password" />
     </div>
   </div>
   
   <hr>
   <div class="w-100 d-flex justify-content-lg-end flex-lg-row flex-column">
-    <button class="btn btn-primary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6" >
+    <button class="btn btn-primary text-uppercase fw-bold px-lg-4 py-lg-1 py-2 h6" [disabled]="newStaffForm.invalid">
       Create Staff
     </button>
   </div>

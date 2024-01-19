@@ -14,7 +14,7 @@ export class EventsService {
 
   // serverUrl: string = 'http://localhost:5000/ems'
   // serverUrl: string = 'http://ems-express.up.railway.app/ems'
-  serverUrl: string = Environment.serverUrl
+  serverUrl: string = Environment.url
   root: string = `${this.serverUrl}/event`
 
   getAllEvents() {

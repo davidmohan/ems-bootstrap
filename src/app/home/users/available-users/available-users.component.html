@@ -4,7 +4,6 @@
     <span class="sub-heading">Staffs & Students</span>
   </div>
   <div class="row my-lg-3">
-  
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Filter</label>
       <form [formGroup]="userTypeForm">
@@ -16,12 +15,14 @@
       </form>
     </div>
 
-  <div class="w-100 d-flex justify-content-end mt-3">
-    <button routerLink="add-user" class="btn btn-primary py-2 px-4 h6 text-uppercase fw-bold">
-      <i class="fas fa-plus me-1"></i>
-      <span>Create User</span>
-    </button>
+    <div class="w-100 d-flex justify-content-end">
+      <button routerLink="add-user" class="btn btn-primary py-1 px-4 h6 text-uppercase fw-bold">
+        <i class="fas fa-plus me-1"></i>
+        <span>Create User</span>
+      </button>
+    </div>
   </div>
+  
   <div class="w-100 overflow-x-auto mt-2">
     <table class="table table-bordered overflow-x-scroll ">
       <thead>
@@ -29,7 +30,7 @@
           <th class="" style="min-width: 80px;">Sno</th>
           <th class="" style="min-width: 180px;">Name</th>
           <th class="" style="min-width: 120px;">Type</th>
-          <th class="" style="min-width: 120px;">Department</th> 
+          <th class="" style="min-width: 120px;" *ngIf="user_type?.value !== 'admin'">Department</th> 
           <th class="" style="min-width: 240px;">Email</th>
           <th class="" style="min-width: 80px;">Action</th>
         </tr>
@@ -40,25 +41,30 @@
             {{ index + 1 }}
           </th>
           <td class="">
-            {{ avlUser.first_name + avlUser.last_name }}
+            {{ avlUser.first_name + " " + avlUser.last_name }}
           </td>
           <td class="">
             {{ avlUser.privilege }}
           </td>
-          <td class="">
+          <td class="" *ngIf="user_type?.value !== 'admin'">
             {{ avlUser.dept }}
           </td>
           <td class="">
             {{ avlUser.email }}
           </td>
-          <td class="">
+          <td class="" *ngIf="user.ref_id !== avlUser._id">
             <div class="d-flex justify-content-center">
-              <button routerLink="modify-user" class="btn btn-warning me-1 py-0">
+              <button [routerLink]="'modify/' + (avlUser._id)" class="btn btn-warning me-1 py-lg-0">
                 <i class="fas fa-pencil"></i>
               </button>
-              <button class="btn btn-danger py-0" (click)="toDeleteUser()">
+              <button class="btn btn-danger " (click)="toDeleteUser(avlUser._id)">
                 <i class="fas fa-trash"></i>
               </button>
+            </div>
+          </td>
+          <td class="" *ngIf="user.ref_id === avlUser._id">
+            <div class="d-flex h-100 justify-content-center align-items-center">
+              <span class="badge bg-success py-2 text-white">Current User</span>
             </div>
           </td>
         </tr>

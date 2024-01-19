@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/service/user/user.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { depts } from 'src/assets/depts'
 
 @Component({
   selector: 'app-new-student-form',
@@ -12,12 +13,16 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class NewStudentFormComponent implements OnInit {
   @Input() privilege: string = ""
 
+  depts: any = []
+
   newStudentForm!: FormGroup;
   constructor(
     private router: Router,
     private userService: UserService,
     private formBuilder: FormBuilder
-  ) { }
+  ) {
+    this.depts = depts
+  }
 
   ngOnInit(): void {
     this.newStudentForm = this.formBuilder.group({
@@ -29,7 +34,8 @@ export class NewStudentFormComponent implements OnInit {
       dept: [null, [Validators.required]],
       year_of_study: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      privilege: [this.privilege]
+      privilege: [this.privilege],
+      gender: [null, [Validators.required]]
     })
   }
 
@@ -45,7 +51,7 @@ export class NewStudentFormComponent implements OnInit {
     }).then((res: any) => {
       console.log(res)
       if (res.isConfirmed) {
-        this.userService.createStudentUser(this.newStudentForm.value).subscribe((val: any) => {
+        this.userService.createUser(this.newStudentForm.value, this.privilege).subscribe((val: any) => {
           if (val.response) {
             Swal.fire({
               title: "Success!",

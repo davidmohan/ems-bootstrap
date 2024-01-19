@@ -35,7 +35,13 @@
   
     <div class="col-lg-4 my-1 my-lg-0">
       <label class="fw-bold text-uppercase mb-1">Department</label>
-      <input  formControlName="dept" type="text" class="form-control border-2 input" placeholder="Student Department" />
+      <ng-select placeholder="Student Depeartment" formControlName="dept">
+        <span *ngFor="let dept of depts">
+          <ng-option *ngIf="dept.graduation === newStudentForm.get('graduation')?.value" [value]="dept.value">
+            {{ dept.dept }}
+          </ng-option>
+        </span>
+      </ng-select>
     </div>
   
     

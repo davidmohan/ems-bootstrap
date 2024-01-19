@@ -33,6 +33,7 @@ import { ViewFeedbackComponent } from './home/event-management/feedbacks/view-fe
 import { LeftMenuComponent } from './home/left-menu/left-menu.component';
 import { Error404Component } from './error-404/error-404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AllFeedbacksComponent,
     ViewFeedbackComponent,
     Error404Component,
+    PdfUploadComponent,
   ],
   imports: [
     BrowserModule,

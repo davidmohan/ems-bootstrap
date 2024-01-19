@@ -21,10 +21,14 @@ export class AvailableUsersComponent {
     { value: 'staff', label: 'Staff' },
     { value: 'std', label: 'Student' },
   ]
+
+  user: any = {}
+
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) {
     this.userTypeForm = formBuilder.group({
       user_type: [null, [Validators.required]]
     })
+    this.user = userService.getUserFromApp()
   }
 
   get user_type() {
@@ -43,7 +47,7 @@ export class AvailableUsersComponent {
     })
   }
 
-  toDeleteUser(): void {
+  toDeleteUser(user_id: string): void {
     Swal.fire({
       title: "Deletion!",
       text: "Please confirm delete the user.!",
@@ -53,6 +57,25 @@ export class AvailableUsersComponent {
       confirmButtonColor: "#a30000",
       showCloseButton: true,
       confirmButtonText: "Delete"
+    }).then((res: any) => {
+      if (res.isConfirmed) {
+        this.userService.deleteUser(user_id, this.user_type?.value).subscribe((val: any) => {
+          if (val.response) {
+            Swal.fire({
+              title: "Success!",
+              text: "User Deleted!",
+              icon: "success",
+            })
+            this.onUserTypeChange()
+            return
+          }
+          Swal.fire({
+            title: "Failed!",
+            text: "User Doesn't Deleted!",
+            icon: "error",
+          })
+        })
+      }
     })
   }
 }

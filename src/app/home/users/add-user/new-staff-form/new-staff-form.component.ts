@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/service/user/user.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { depts } from 'src/assets/depts'
 
 @Component({
   selector: 'app-new-staff-form',
@@ -12,8 +13,10 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class NewStaffFormComponent implements OnInit {
   @Input() privilege: string = ""
   
+  depts: any = []
   newStaffForm!: FormGroup
   constructor(private router: Router, private userService: UserService, private formBuilder: FormBuilder) {
+    this.depts = depts
   }
   
   ngOnInit(): void {
@@ -41,7 +44,7 @@ export class NewStaffFormComponent implements OnInit {
     }).then((res: any) => {
       console.log(res)
       if (res.isConfirmed) {
-        this.userService.createStaffUser(this.newStaffForm.value).subscribe((val: any) => {
+        this.userService.createUser(this.newStaffForm.value, this.privilege).subscribe((val: any) => {
           if (val.response) {
             Swal.fire({
               title: "Success!",

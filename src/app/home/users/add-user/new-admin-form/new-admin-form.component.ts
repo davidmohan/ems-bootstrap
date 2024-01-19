@@ -42,7 +42,7 @@ export class NewAdminFormComponent implements OnInit {
     }).then((res: any) => {
       console.log(res)
       if (res.isConfirmed) {
-        this.userService.createAdminUser(this.newAdminForm.value).subscribe((val: any) => {
+        this.userService.createUser(this.newAdminForm.value, this.privilege).subscribe((val: any) => {
           if (val.response) {
             Swal.fire({
               title: "Success!",

@@ -35,16 +35,31 @@ export class UserService {
     return this.http.get(`${this.root}/${user_type}/all`)
   }
 
-  createStaffUser(data: any) {
-    return this.http.post(`${this.root}/staff/create`, data)
+  // createStaffUser(data: any) {
+  //   return this.http.post(`${this.root}/staff/create`, data)
+  // }
+
+  // createAdminUser(data: any) {
+  //   return this.http.post(`${this.root}/admin/create`, data)
+  // }
+  
+  // createStudentUser(data: any) {
+  //   return this.http.post(`${this.root}/std/create`, data)
+  // }
+
+  createUser(data: any, type: string) {
+    return this.http.post(`${this.root}/${type}/create`, data)
   }
 
-  createAdminUser(data: any) {
-    return this.http.post(`${this.root}/admin/create`, data)
+  deleteUser(id: string, type: string) {
+    return this.http.delete(`${this.root}/${type}/${id}`)
   }
   
-  createStudentUser(data: any) {
-    return this.http.post(`${this.root}/std/create`, data)
+  getUserByRef(ref_id: string | null) {
+    return this.http.get(`${this.root}/user/update/${ref_id}`)
   }
 
+  getUserForUpdate(id: string, type: string) {
+    return this.http.get(`${this.root}/${type}/${id}`)
+  }
 }
