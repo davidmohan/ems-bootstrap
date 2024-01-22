@@ -12,7 +12,7 @@ export class UserService {
   serverUrl: string = Environment.url
   root: string = `${this.serverUrl}`
   user!: any
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
   }
 
   authUser(data: any) {

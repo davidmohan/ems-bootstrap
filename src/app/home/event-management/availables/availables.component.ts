@@ -33,4 +33,8 @@ export class AvailablesComponent {
       confirmButtonText: "Delete"
     })
   }
+  getDateToDisplay(date: string) {
+    const avlDate = new Date(date)
+    return (`${avlDate.getDate()}/${avlDate.getMonth() + 1}/${avlDate.getFullYear()}`)
+  }
 }

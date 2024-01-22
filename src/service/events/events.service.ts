@@ -25,4 +25,8 @@ export class EventsService {
     return this.http.post(`${this.root}/create`, data)
   }
 
+  getEventById(id: string | null) {
+    return this.http.get(`${this.root}/${id}`)
+  }
+
 }

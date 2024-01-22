@@ -39,7 +39,7 @@ const routes: Routes = [
         { path: '', component: AllFeedbacksComponent },
         { path: 'view', component: ViewFeedbackComponent },
       ]},
-      { path:'registration-form', component: RegistrationFormComponent },
+      { path:'registration-form/:id', component: RegistrationFormComponent },
       { path:'feedback-form', component: FeedbackFormComponent },
     ]},
     { path:'users', component:UsersComponent, children: [

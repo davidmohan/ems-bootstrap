@@ -39,6 +39,7 @@ export class AuthComponent {
         }).then((res: any) => {
           if (res.isConfirmed) {
             localStorage.setItem('token', val.ref_id)
+            console.log(val)
             this.router.navigateByUrl('/dash-board')
           }
         })

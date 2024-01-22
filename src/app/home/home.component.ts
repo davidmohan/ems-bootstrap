@@ -14,6 +14,7 @@ export class HomeComponent {
     userService.getUser(localStorage.getItem('token')).subscribe((val: any) => {
       if (val.response) {
         userService.setUser(val.data)
+        // console.log(val)
         this.user = userService.getUserFromApp()
       }
     })
