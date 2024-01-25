@@ -29,4 +29,16 @@ export class EventsService {
     return this.http.get(`${this.root}/${id}`)
   }
 
+  getAllEventsByStaff(staff_id: string) {
+    return this.http.get(`${this.root}/f/staff/${staff_id}`)
+  }
+
+  getAllEventByYearAndDept(year: string, dept: string) {
+    return this.http.get(`${this.root}/${year}/${dept}`)
+  }
+
+  updateEventStatus(event_id: string, value: string | number) {
+    return this.http.put(`${this.root}/s/u/${event_id}`, { value: value })
+  }
+
 }

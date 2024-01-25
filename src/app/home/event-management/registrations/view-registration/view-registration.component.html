@@ -11,7 +11,7 @@
           type="text"
           class="form-control border-2 input bg-white text-secondary"
           disabled
-          value="value"
+          [value]="registrationData.first_name"
         />
       </div>
       <div class="col-lg-4 my-1 my-lg-0">
@@ -19,7 +19,7 @@
         <input
           type="text"
           class="form-control border-2 input bg-white text-secondary"
-          value="value"
+          [value]="registrationData.last_name"
           disabled
         />
       </div>
@@ -28,7 +28,7 @@
         <input
           type="text"
           class="form-control border-2 input bg-white text-secondary"
-          value="value"
+          [value]="registrationData.reg_no"
           disabled
         />
       </div>
@@ -40,14 +40,14 @@
           type="text"
           class="form-control border-2 input bg-white text-secondary"
           disabled
-          value="value"
+          [value]="registrationData.dept"
           />
         </div>
         <div class="col-lg-4 my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Year of Study</label>
           <input
           type="text"
-          value="value"
+          [value]="registrationData.year_of_study"
           class="form-control border-2 input bg-white text-secondary"
           disabled
           />
@@ -55,7 +55,7 @@
         <div class="col-lg-4 my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Email</label>
           <input
-          value="value"
+          [value]="registrationData.email"
           type="text"
           class="form-control border-2 input bg-white text-secondary"
           disabled
@@ -66,7 +66,7 @@
     <div>
       <div class="w-100 d-flex justify-content-end">
         <button
-          routerLink="../"
+          routerLink="../../"
           class="btn btn-secondary text-uppercase fw-bold px-4 py-1 h6 mx-2"
         >
           Back

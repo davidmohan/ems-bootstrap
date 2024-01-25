@@ -4,7 +4,7 @@
     <span class="sub-heading">Students</span>
   </div>
   <div class="w-100 d-flex justify-content-end mt-3">
-    <button routerLink="/event-management" class="btn btn-secondary py-1 mx-2 h6 text-uppercase fw-bold">
+    <button routerLink="../../" class="btn btn-secondary py-1 mx-2 h6 text-uppercase fw-bold">
       Back
     </button>
     <button class="btn btn-primary py-1 h6 text-uppercase fw-bold">
@@ -25,26 +25,26 @@
           <th class="" style="min-width: 120px;">Action</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th class="text-center">1</th>
-          <td class="">Mohan A</td>
-          <td class="">22PA40</td>
-          <td class="">MCA</td>
-          <td class="">2</td>
-          <td class="">22pa40@anjaconline.org</td>
+      <tbody class="">
+        <tr *ngFor="let register of avlRegistrations; index as index">
+          <th class="text-center">{{index + 1}}</th>
+          <td class="">{{(register.first_name + " " + register.last_name) | uppercase}}</td>
+          <td class="">{{register.reg_no | uppercase}}</td>
+          <td class="">{{register.dept | uppercase}}</td>
+          <td class="">{{register.year_of_study}}</td>
+          <td class="">{{register.email | lowercase}}</td>
           <td class="">
             <div class="d-flex justify-content-center">
-              <button routerLink="view" title="Feedback" class="btn btn-warning me-1 py-0">
+              <button [routerLink]="'v/' + register._id" title="View Data" class="btn btn-warning me-1">
                 <i class="fas fa-book-bookmark"></i>
               </button>
-              <button title="Delete" class="btn btn-danger py-0" >
+              <button title="Delete" class="btn btn-danger" >
                 <i class="fas fa-trash"></i>
               </button>
             </div>
           </td>
         </tr>
-        <tr>
+        <tr *ngIf="avlRegistrations.length === 0">
           <td colspan="7" class="text-center">
             No Record Found
           </td>

@@ -7,18 +7,24 @@
   <div class="w-100 d-flex justify-content-center my-5 ">
     <i class="fa-solid fa-user display-1"> </i>
   </div>
-  <div class="px-5">
+  <div class="ps-4">
     <div class="mb-3" (click)="closeNav()">
-      <i class=""></i>
-      <a routerLink="dash-board" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">Dashboard</a>
+      <a routerLink="dash-board" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">
+        <i class="fas fa-meteor"></i>
+        Dashboard
+      </a>
     </div>
     <div class="mb-3 " (click)="closeNav()">
-      <i class=""></i>
-      <a routerLink="event-management" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">Event Management</a>
+      <a routerLink="event-management" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">
+        <i class="fas fa-book-reader"></i> 
+        Event Management
+      </a>
     </div>
     <div class="mb-3 " (click)="closeNav()" *ngIf="!(user?.privilege === 'std')">
-      <i class=""></i>
-      <a routerLink="users" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">Users</a>
+      <a routerLink="users" class="text-decoration-none text-secondary" routerLinkActive="fw-bold text-primary-emphasis ">
+        <i class="fas fa-users"></i>
+        Users
+      </a>
     </div>
   </div>
 </div>

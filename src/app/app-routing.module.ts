@@ -31,13 +31,13 @@ const routes: Routes = [
       { path:'', component: AvailablesComponent },
       { path:'add-event', component: AddEventComponent },
       { path:'modify-event', component: ModifyEventComponent },
-      { path:'registrations', component: RegistrationsComponent, children: [
+      { path:'registrations/:event_id', component: RegistrationsComponent, children: [
         { path: '', component: AllRegistrationsComponent },
-        { path: 'view', component: ViewRegistrationComponent },
+        { path: 'v/:register_id', component: ViewRegistrationComponent },
       ]},
       { path:'feedbacks', component: FeedbacksComponent, children: [
-        { path: '', component: AllFeedbacksComponent },
-        { path: 'view', component: ViewFeedbackComponent },
+        { path: ':event_id', component: AllFeedbacksComponent },
+        { path: 'v/:feedback_id', component: ViewFeedbackComponent },
       ]},
       { path:'registration-form/:id', component: RegistrationFormComponent },
       { path:'feedback-form', component: FeedbackFormComponent },

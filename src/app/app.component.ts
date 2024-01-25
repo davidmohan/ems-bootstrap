@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private router: Router) {
-    // if (localStorage.getItem('token') != null) {
-    //   router.navigateByUrl('/dash-board')
-    // } else {
-    //   router.navigateByUrl('/auth')
-    // }
+    if (localStorage.getItem('token') != null) {
+      router.navigateByUrl('/dash-board')
+    } else {
+      router.navigateByUrl('/auth')
+    }
   }
 }
