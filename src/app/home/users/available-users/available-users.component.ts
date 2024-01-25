@@ -60,6 +60,7 @@ export class AvailableUsersComponent {
     }).then((res: any) => {
       if (res.isConfirmed) {
         this.userService.deleteUser(user_id, this.user_type?.value).subscribe((val: any) => {
+          console.log(val.response)
           if (val.response) {
             Swal.fire({
               title: "Success!",
@@ -68,12 +69,13 @@ export class AvailableUsersComponent {
             })
             this.onUserTypeChange()
             return
+          } else {
+            Swal.fire({
+              title: "Failed!",
+              text: "User Doesn't Deleted!",
+              icon: "error",
+            })
           }
-          Swal.fire({
-            title: "Failed!",
-            text: "User Doesn't Deleted!",
-            icon: "error",
-          })
         })
       }
     })
