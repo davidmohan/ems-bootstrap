@@ -12,7 +12,6 @@ import { AddEventComponent } from './home/event-management/add-event/add-event.c
 import { AvailablesComponent } from './home/event-management/availables/availables.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { ModifyEventComponent } from './home/event-management/modify-event/modify-event.component';
 import { RegistrationsComponent } from './home/event-management/registrations/registrations.component';
 import { FeedbacksComponent } from './home/event-management/feedbacks/feedbacks.component';
 import { AddUserComponent } from './home/users/add-user/add-user.component';
@@ -34,7 +33,6 @@ import { LeftMenuComponent } from './home/left-menu/left-menu.component';
 import { Error404Component } from './error-404/error-404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +44,6 @@ import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
     AddEventComponent,
     LeftMenuComponent,
     AvailablesComponent,
-    ModifyEventComponent,
     RegistrationsComponent,
     FeedbacksComponent,
     AvailableUsersComponent,

@@ -54,3 +54,8 @@ label, .label {
 .t-col-3 {
   width: 200px !important;
 }
+
+.btn-active:active {
+  transition: all 10ms ease;
+  transform: scale(0.96);
+}

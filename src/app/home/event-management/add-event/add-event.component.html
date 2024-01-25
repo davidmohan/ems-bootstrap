@@ -4,14 +4,14 @@
       <span class="heading fw-bold">Create an New Event</span>
       <span class="sub-heading">Settings</span>
     </div>
-    <div class="row row-gap-lg-3 mt-lg-1 mt-2">
-      <div class="row">
-        <div class="col-lg-4 my-1 my-lg-0">
+    <div class="w-100 mt-lg-1 mt-2">
+      <div class="row my-lg-3 ">
+        <div class="col-lg-4  my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Event Name</label>
           <input formControlName="event_name" type="text" class="form-control border-2 input" placeholder="Please give the name for Event" />
         </div>
   
-        <div class="col-lg-4 my-1 my-lg-0">
+        <div class="col-lg-4  my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Graduation</label>
           <ng-select  [placeholder]="'Select the Graduation'" formControlName="graduation">
             <ng-option value="ug">UG</ng-option>
@@ -19,7 +19,7 @@
           </ng-select>
         </div>
   
-        <div class="col-lg-4 my-1 my-lg-0">
+        <div class="col-lg-4  my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Department can participate</label>
           
           <ng-select [multiple]="true" [placeholder]="'Select the Departments'" formControlName="dept_can_participate">
@@ -32,7 +32,7 @@
         
         </div>
       </div>
-      <div class="row">
+      <div class="row my-lg-3">
         <div class="col-lg-4 my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Year can participate</label>
           <ng-select [multiple]="true" [placeholder]="'Select the Years of students'" formControlName="year_can_participate">
@@ -59,7 +59,7 @@
         </div>
         
       </div>
-      <div class="row">
+      <div class="row my-lg-3">
         <div class="col-lg-4 my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Venue</label>
           <input formControlName="venue" type="text" class="form-control border-2 input"  placeholder="Please give the Venue"/>
@@ -98,8 +98,8 @@
     </div>
     <hr>
     <div class="w-100 d-flex justify-content-end">
-      <button routerLink="/event-management" class="btn btn-secondary text-uppercase fw-bold px-4 py-1 h6 mx-2">Back</button>
-      <button class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6" [disabled]="newEventForm.invalid" >Create Event</button>
+      <button routerLink="/event-management" class="btn btn-secondary btn-active text-uppercase fw-bold px-4 py-1 h6 mx-2">Back</button>
+      <button class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6 btn-active" [disabled]="newEventForm.invalid" >Create Event</button>
     </div>
   </div>
   

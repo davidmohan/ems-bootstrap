@@ -16,7 +16,7 @@
         <input formControlName="password" type="password" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
       </div>
       <div class="my-2 col-8">
-        <button [class]="'btn btn-primary fw-bold col-12 py-2 ' + (loginForm.invalid ? 'btn-dark bg-dark' : 'btn-primary')" [disabled]="loginForm.invalid">
+        <button [class]="'btn btn-primary btn-active fw-bold col-12 py-2 ' + (loginForm.invalid ? 'btn-dark bg-dark' : 'btn-primary')" [disabled]="loginForm.invalid">
           Login
         </button>
       </div>
@@ -41,7 +41,7 @@
         <input formControlName="password" type="password" class="form-control my-1 py-2 border-2 border-secondary-subtle ">
       </div>
       <div class="my-2 col-8">
-        <button [class]="'btn fw-bold col-12 py-2 ' + (loginForm.invalid ? 'btn-secondary' : 'btn-primary')" [disabled]="loginForm.invalid">
+        <button [class]="'btn btn-active fw-bold col-12 py-2 ' + (loginForm.invalid ? 'btn-secondary' : 'btn-primary')" [disabled]="loginForm.invalid">
           Login
         </button>
       </div>

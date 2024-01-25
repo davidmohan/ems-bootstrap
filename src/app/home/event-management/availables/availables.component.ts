@@ -84,4 +84,18 @@ export class AvailablesComponent {
     const avlDate = new Date(date)
     return (`${avlDate.getDate()}/${avlDate.getMonth() + 1}/${avlDate.getFullYear()}`)
   }
+
+  getDepartments(depts: any) {
+    let value = ""
+    depts.forEach((dept: string) => {
+      value +=  dept.toUpperCase() + " | "
+    })
+    value = value.substring(0, value.length - 2)
+    return value
+  }
+
+  modifyEvents(): void {
+    alert("Action is Developing Phase")
+  }
+
 }

@@ -4,7 +4,7 @@
     <span class="sub-heading">View</span>
   </div>
   <div class="w-100 d-flex justify-content-end mt-3" *ngIf="user?.privilege != 'std'">
-    <button routerLink="add-event" class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6">
+    <button routerLink="add-event" class="btn btn-primary btn-active text-uppercase fw-bold px-4 py-1 h6">
       <i class="fas fa-plus me-1"></i>
       <span>Add Event</span>
     </button>
@@ -17,6 +17,7 @@
             <th class="col-1" style="min-width: 80px;">Sno</th>
             <th class="col-1" style="min-width: 200px;">Event Name</th>
             <th class="col-2" style="min-width: 200px;">Event Type</th>
+            <th class="col-2" style="min-width: 200px;" *ngIf="user.privilege != 'std'">Departments</th>
             <th class="col-2" style="min-width: 200px;">Start Date</th>
             <th class="col-2" style="min-width: 200px;">End Date</th>
             <th class="col-2" style="min-width: 150px;" *ngIf="user.privilege != 'std'">Enable Event</th>
@@ -28,6 +29,14 @@
             <th class="col-1 text-center"> {{ index + 1 }} </th>
             <td class="">{{ event.event_name }}</td>
             <td class="">{{ event.event_type }}</td>
+            <td class="">
+              <!-- {{ getDepartments(event.dept_can_participate) }} -->
+              <div >
+                <span *ngFor="let dept of event.dept_can_participate" class="px-2 py-1 bg-primary-subtle me-1 rounded-2">
+                  {{ dept | uppercase }}
+                </span>
+              </div>
+            </td>
             <td class="">{{ getDateToDisplay(event.start_date) }}</td>
             <td class="">{{ getDateToDisplay(event.end_date) }}</td>
             <td class=""  *ngIf="user?.privilege != 'std'">
@@ -37,26 +46,26 @@
             </td>
             <td class="" *ngIf="user?.privilege != 'std'">
               <div class="d-flex justify-content-center">
-                <button [routerLink]="'registrations/' + event._id" class="btn btn-primary">
+                <button [routerLink]="'registrations/' + event._id" class="btn btn-primary btn-active">
                   <i class="fas fa-book"></i>
                 </button>
-                <button [routerLink]="'view/'" class="btn btn-secondary mx-1">
+                <button  class="btn btn-secondary btn-active mx-1" (click)="modifyEvents()">
                   <i class="fas fa-cash-register"></i>
                 </button>
-                <button routerLink="modify-event" class="btn btn-warning">
+                <button class="btn btn-warning btn-active" (click)="modifyEvents()">
                   <i class="fas fa-pencil"></i>
                 </button>
-                <button class="btn btn-danger ms-1" (click)="deleteTheEvent()">
+                <button class="btn btn-danger btn-active ms-1" (click)="deleteTheEvent()">
                   <i class="fas fa-trash"></i>
                 </button>
               </div>
             </td>
             <td class="" *ngIf="user?.privilege == 'std'">
               <div class="d-flex justify-content-center">
-                <button [routerLink]="'registration-form/' + event._id" class="btn btn-primary">
+                <button [routerLink]="'registration-form/' + event._id" class="btn btn-primary btn-active">
                   <i class="fas fa-book"></i>
                 </button>
-                <button routerLink="feedback-form" class="btn btn-secondary ms-1">
+                <button routerLink="feedback-form" class="btn btn-secondary btn-active ms-1">
                   <i class="fas fa-cash-register"></i>
                 </button>
               </div>

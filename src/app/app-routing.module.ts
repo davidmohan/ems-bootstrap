@@ -8,7 +8,6 @@ import { EventManagementComponent } from './home/event-management/event-manageme
 import { UsersComponent } from './home/users/users.component'
 import { AddEventComponent } from './home/event-management/add-event/add-event.component';
 import { AvailablesComponent } from './home/event-management/availables/availables.component';
-import { ModifyEventComponent } from './home/event-management/modify-event/modify-event.component';
 import { RegistrationsComponent } from './home/event-management/registrations/registrations.component';
 import { FeedbacksComponent } from './home/event-management/feedbacks/feedbacks.component';
 import { AvailableUsersComponent } from './home/users/available-users/available-users.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
     { path:'event-management', component:EventManagementComponent, children: [
       { path:'', component: AvailablesComponent },
       { path:'add-event', component: AddEventComponent },
-      { path:'modify-event', component: ModifyEventComponent },
       { path:'registrations/:event_id', component: RegistrationsComponent, children: [
         { path: '', component: AllRegistrationsComponent },
         { path: 'v/:register_id', component: ViewRegistrationComponent },

@@ -4,10 +4,10 @@
     <span class="sub-heading">Students</span>
   </div>
   <div class="w-100 d-flex justify-content-end mt-3">
-    <button routerLink="../../" class="btn btn-secondary py-1 mx-2 h6 text-uppercase fw-bold">
+    <button routerLink="../../" class="btn btn-secondary btn-active py-1 mx-2 h6 text-uppercase fw-bold">
       Back
     </button>
-    <button class="btn btn-primary py-1 h6 text-uppercase fw-bold">
+    <button class="btn btn-primary btn-active py-1 h6 text-uppercase fw-bold">
       <i class="fas fa-download me-1"></i>
       <span>Download Registrations</span>
     </button>
@@ -35,10 +35,10 @@
           <td class="">{{register.email | lowercase}}</td>
           <td class="">
             <div class="d-flex justify-content-center">
-              <button [routerLink]="'v/' + register._id" title="View Data" class="btn btn-warning me-1">
+              <button [routerLink]="'v/' + register._id" title="View Data" class="btn btn-warning me-1 btn-active">
                 <i class="fas fa-book-bookmark"></i>
               </button>
-              <button title="Delete" class="btn btn-danger" >
+              <button title="Delete" class="btn btn-danger btn-active" >
                 <i class="fas fa-trash"></i>
               </button>
             </div>
