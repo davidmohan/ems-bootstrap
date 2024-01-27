@@ -65,7 +65,32 @@
           <input formControlName="venue" type="text" class="form-control border-2 input"  placeholder="Please give the Venue"/>
           
         </div>
+<!--   
+        <div class="col-lg-4 my-1 my-lg-0">
+          <label class="fw-bold text-uppercase">Event Type</label>
+          <ng-select formControlName="event_type" placeholder="Select the Event Type">
+            <ng-option value="payment">Payment</ng-option>
+            <ng-option value="Free">Free</ng-option>
+          </ng-select>
+        </div>
+        
+        <div class="col-lg-4 my-1 my-lg-0" *ngIf="newEventForm.get('event_type')?.value === 'payment'" >
+          <label class="fw-bold text-uppercase">Amount</label>
+          <input formControlName="amount" type="number" class="form-control border-2 input" placeholder="Fill the amount weather the type is payment" [value]="(newEventForm.get('event_type')?.value === 'payment') ? '' : 0" />
+        </div> -->
+        <div class="col-lg-4 my-1 my-lg-0">
+          <label class="fw-bold text-uppercase">Contact Number</label>
+          <input formControlName="contact_number" type="number" class="form-control border-2 input"  placeholder="Please give the Contact Number"/>
+        </div>
   
+        <div class="col-lg-4 my-1 my-lg-0">
+          <label class="fw-bold text-uppercase">Contact Email</label>
+          <input formControlName="contact_email" type="email" class="form-control border-2 input"  placeholder="Please give the Contact Email"/>
+        </div>
+  
+      </div>
+      <div class="row my-lg-3">
+
         <div class="col-lg-4 my-1 my-lg-0">
           <label class="fw-bold text-uppercase">Event Type</label>
           <!-- Event Types -->

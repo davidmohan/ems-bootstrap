@@ -30,7 +30,10 @@ export class AddEventComponent implements OnInit {
       summary: [null, [Validators.required]],
       ref_id: [localStorage.getItem('token')],
       status: [false],
-      graduation: [null, [Validators.required]]
+      feedback_status: [false],
+      graduation: [null, [Validators.required]],
+      contact_number: [null, [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      contact_email: [null, [Validators.required]]
     })
   }
   createEvent(): void {

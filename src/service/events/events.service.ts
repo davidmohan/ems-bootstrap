@@ -41,4 +41,7 @@ export class EventsService {
     return this.http.put(`${this.root}/s/u/${event_id}`, { value: value })
   }
 
+  updateFeedbackStatus(event_id: string, value: string | number) {
+    return this.http.put(`${this.root}/fbstatus/u/${event_id}`, { value: value })
+  }
 }

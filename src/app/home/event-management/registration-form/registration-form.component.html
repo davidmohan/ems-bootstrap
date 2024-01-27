@@ -64,20 +64,32 @@
     </div>
     <hr class="mb-2" />
     <div class="d-flex flex-column">
-      <span class="heading fw-bold">Event Registration</span>
+      <span class="heading fw-bold">Event Discription</span>
       <span class="sub-heading">Details</span>
       <div class="w-100 mt-lg-1 mt-2">
         <div class="row my-lg-3">
-          <div class="col-lg-2 my-1 my-lg-0 d-flex flex-column">
+          <div class="col-lg-3 my-1 my-lg-0 d-flex flex-column">
             <label class="fw-bold text-uppercase">Start Date</label>
             <span class="detail-data mt-1 fs-5">
-              {{ getDateToDisplay(event.start_date )}}
+              {{ getDateToDisplay(event.start_date)}}
             </span>
           </div>
-          <div class="col-lg-2 my-1 my-lg-0 d-flex flex-column">
+          <div class="col-lg-3 my-1 my-lg-0 d-flex flex-column">
             <label class="fw-bold text-uppercase">End Date</label>
             <span class="detail-data mt-1 fs-5">
               {{ getDateToDisplay(event.end_date) }}
+            </span>
+          </div>
+          <div class="col-lg-3 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase">Contact Number</label>
+            <span class="detail-data mt-1 fs-5">
+              {{ event.contact_number}}
+            </span>
+          </div>
+          <div class="col-lg-3 my-1 my-lg-0 d-flex flex-column">
+            <label class="fw-bold text-uppercase">Contact Email</label>
+            <span class="detail-data mt-1 fs-5">
+              {{ event.contact_email }}
             </span>
           </div>
         </div>

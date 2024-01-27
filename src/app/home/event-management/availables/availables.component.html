@@ -20,8 +20,9 @@
             <th class="col-2" style="min-width: 200px;" *ngIf="user.privilege != 'std'">Departments</th>
             <th class="col-2" style="min-width: 200px;">Start Date</th>
             <th class="col-2" style="min-width: 200px;">End Date</th>
-            <th class="col-2" style="min-width: 150px;" *ngIf="user.privilege != 'std'">Enable Event</th>
-            <th class="col-2" >Action</th>
+            <th class="col-2" style="min-width: 200px;" *ngIf="user.privilege != 'std'">Enable Registration</th>
+            <th class="col-2" style="min-width: 150px;" *ngIf="user.privilege != 'std'">Enable Feedbacks</th>
+            <th class="col-2" style="min-width: 150px;">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +30,7 @@
             <th class="col-1 text-center"> {{ index + 1 }} </th>
             <td class="">{{ event.event_name }}</td>
             <td class="">{{ event.event_type }}</td>
-            <td class="">
+            <td class="" *ngIf="user.privilege != 'std'">
               <!-- {{ getDepartments(event.dept_can_participate) }} -->
               <div >
                 <span *ngFor="let dept of event.dept_can_participate" class="px-2 py-1 bg-primary-subtle me-1 rounded-2">
@@ -44,15 +45,20 @@
                 <input type="checkbox" class="form-check-input fs-5 border-2" role="switch" (change)="eventStatusChange(event._id,$event)" [checked]="event.status">
               </div>
             </td>
+            <td class=""  *ngIf="user?.privilege != 'std'">
+              <div class="form-check form-switch d-flex justify-content-center">
+                <input type="checkbox" class="form-check-input fs-5 border-2" role="switch" (change)="feedbackStatusChange(event._id,$event)" [checked]="event.feedback_status">
+              </div>
+            </td>
             <td class="" *ngIf="user?.privilege != 'std'">
               <div class="d-flex justify-content-center">
                 <button [routerLink]="'registrations/' + event._id" class="btn btn-primary btn-active">
                   <i class="fas fa-book"></i>
                 </button>
-                <button  class="btn btn-secondary btn-active mx-1" (click)="modifyEvents()">
+                <button  class="btn btn-secondary btn-active mx-1" (click)="developingPhase()">
                   <i class="fas fa-cash-register"></i>
                 </button>
-                <button class="btn btn-warning btn-active" (click)="modifyEvents()">
+                <button class="btn btn-warning btn-active" (click)="developingPhase()">
                   <i class="fas fa-pencil"></i>
                 </button>
                 <button class="btn btn-danger btn-active ms-1" (click)="deleteTheEvent()">
@@ -62,12 +68,17 @@
             </td>
             <td class="" *ngIf="user?.privilege == 'std'">
               <div class="d-flex justify-content-center">
-                <button [routerLink]="'registration-form/' + event._id" class="btn btn-primary btn-active">
+                <button [routerLink]="'registration-form/' + event._id" class="btn btn-primary h6 text-uppercase fw-bold py-1 btn-active" *ngIf="event.status">
                   <i class="fas fa-book"></i>
+                  <span class="ms-1">Register</span>
                 </button>
-                <button routerLink="feedback-form" class="btn btn-secondary btn-active ms-1">
+                <button  class="btn btn-primary h6 text-uppercase fw-bold py-1 btn-active ms-1" *ngIf="event.feedback_status" (click)="developingPhase()">
                   <i class="fas fa-cash-register"></i>
+                  <span class="ms-1">Feedback</span>
                 </button>
+                <span *ngIf="(event.status === false) && (event.feedback_status === false)" class="badge bg-success text-white h6 fw-bold text-uppercase py-2">
+                  No Action
+                </span>
               </div>
             </td>
           </tr>

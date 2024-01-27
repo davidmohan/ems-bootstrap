@@ -46,7 +46,7 @@ export class AvailablesComponent {
         this.eventService.getAllEventByYearAndDept(val.data.year_of_study, val.data.dept).subscribe((next_val: any) => {
           // console.log(next_val.data)
           if (next_val.response) {
-            this.availableEvents = next_val.data.filter((event: any) => event.status === true)
+            this.availableEvents = next_val.data
           }
         })
       }
@@ -55,6 +55,14 @@ export class AvailablesComponent {
 
   eventStatusChange(event_id: string, event: any) {
     this.eventService.updateEventStatus(event_id, event.target.checked).subscribe((val: any) => {
+      if (val.response) {
+        this.getAvlEvents()
+      }
+    })
+  }
+
+  feedbackStatusChange(event_id: string, event: any) {
+    this.eventService.updateFeedbackStatus(event_id, event.target.checked).subscribe((val: any) => {
       if (val.response) {
         this.getAvlEvents()
       }
@@ -94,8 +102,7 @@ export class AvailablesComponent {
     return value
   }
 
-  modifyEvents(): void {
+  developingPhase(): void {
     alert("Action is Developing Phase")
   }
-
 }

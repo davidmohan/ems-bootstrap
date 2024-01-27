@@ -22,7 +22,7 @@ export class DashBoardComponent implements OnInit {
           this.eventService.getAllEventByYearAndDept(val.data.year_of_study, val.data.dept).subscribe((next_val: any) => {
             if (next_val.response) {
               this.events = next_val.data.filter((event: any) => event.status === true)
-              console.log(this.events)
+              // console.log(this.events)
             }
           })
         }
