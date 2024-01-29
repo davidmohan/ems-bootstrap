@@ -49,6 +49,7 @@ export class NewAdminFormComponent implements OnInit {
               text: "User created!",
               icon: "success",
             })
+            this.router.navigateByUrl('users')
             return
           } else {
             Swal.fire({

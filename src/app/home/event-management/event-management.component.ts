@@ -7,5 +7,4 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-management.component.css']
 })
 export class EventManagementComponent {
-  
 }

@@ -16,7 +16,7 @@ export class ModifyStudentComponent {
   }
   ngOnInit(): void {
     this.updatedUserData = this.formBuilder.group({ ... this.userData })
-    console.log(this.updatedUserData.value)
+    // console.log(this.updatedUserData.value)
   }
   updateFormSubmit() { }
 }

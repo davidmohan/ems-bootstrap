@@ -37,13 +37,13 @@
           <label class="fw-bold text-uppercase">Year can participate</label>
           <ng-select [multiple]="true" [placeholder]="'Select the Years of students'" formControlName="year_can_participate">
             <ng-option value="1" *ngIf="newEventForm.get('graduation')?.value">
-              I
+              1
             </ng-option>
             <ng-option value="2" *ngIf="newEventForm.get('graduation')?.value">
-              II
+              2
             </ng-option>
             <ng-option value="3" *ngIf="newEventForm.get('graduation')?.value && newEventForm.get('graduation')?.value === 'ug'">
-              III
+              3
             </ng-option>
           </ng-select>
         </div>

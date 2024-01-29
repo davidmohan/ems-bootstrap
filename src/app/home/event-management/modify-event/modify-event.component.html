@@ -1,0 +1,139 @@
+<div class="text-center" *ngIf="loading">
+  <span class="text-uppercase fw-bold">
+    Loading...
+  </span>
+</div>
+
+<div *ngIf="!loading">
+  <form [formGroup]="updateForm" (submit)="updateFormSubmit()">
+    <div class="w-100">
+      <div class="d-flex flex-column">
+        <span class="heading fw-bold">Update an Existing Event</span>
+        <span class="sub-heading">Settings</span>
+      </div>
+      <div class="w-100 mt-lg-1 mt-2">
+        <div class="row my-lg-3 ">
+          <div class="col-lg-4  my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Event Name</label>
+            <input formControlName="event_name" type="text" class="form-control border-2 input" placeholder="Please give the name for Event" />
+          </div>
+    
+          <div class="col-lg-4  my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Graduation</label>
+            <ng-select  [placeholder]="'Select the Graduation'" formControlName="graduation">
+              <ng-option value="ug">UG</ng-option>
+              <ng-option value="pg">PG</ng-option>
+            </ng-select>
+          </div>
+    
+          <div class="col-lg-4  my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Department can participate</label>
+            
+            <ng-select [multiple]="true" [placeholder]="'Select the Departments'" formControlName="dept_can_participate">
+              <span *ngFor="let dept of depts">
+                <ng-option [value]="dept.value" *ngIf="dept.graduation === updateForm.get('graduation')?.value">
+                  {{ dept.value | uppercase }}
+                </ng-option>
+              </span>
+            </ng-select>
+          
+          </div>
+        </div>
+        <div class="row my-lg-3">
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Year can participate</label>
+            <ng-select [multiple]="true" [placeholder]="'Select the Years of students'" formControlName="year_can_participate">
+              <ng-option value="1" *ngIf="updateForm.get('graduation')?.value">
+                1
+              </ng-option>
+              <ng-option value="2" *ngIf="updateForm.get('graduation')?.value">
+                2
+              </ng-option>
+              <ng-option value="3" *ngIf="updateForm.get('graduation')?.value && updateForm.get('graduation')?.value === 'ug'">
+                3
+              </ng-option>
+            </ng-select>
+          </div>
+  
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Start Date</label>
+            <input formControlName="start_date" [value]="updateForm.get('start_date')?.value" type="date" class="form-control border-2 input" />
+          </div>
+          
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">End Date</label>
+            <input formControlName="end_date" type="date" class="form-control border-2 input" />
+          </div>
+          
+        </div>
+        <div class="row my-lg-3">
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Venue</label>
+            <input formControlName="venue" type="text" class="form-control border-2 input"  placeholder="Please give the Venue"/>
+            
+          </div>
+  <!--   
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Event Type</label>
+            <ng-select formControlName="event_type" placeholder="Select the Event Type">
+              <ng-option value="payment">Payment</ng-option>
+              <ng-option value="Free">Free</ng-option>
+            </ng-select>
+          </div>
+          
+          <div class="col-lg-4 my-1 my-lg-0" *ngIf="updateForm.get('event_type')?.value === 'payment'" >
+            <label class="fw-bold text-uppercase">Amount</label>
+            <input formControlName="amount" type="number" class="form-control border-2 input" placeholder="Fill the amount weather the type is payment" [value]="(updateForm.get('event_type')?.value === 'payment') ? '' : 0" />
+          </div> -->
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Contact Number</label>
+            <input formControlName="contact_number" type="number" class="form-control border-2 input"  placeholder="Please give the Contact Number"/>
+          </div>
+    
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Contact Email</label>
+            <input formControlName="contact_email" type="email" class="form-control border-2 input"  placeholder="Please give the Contact Email"/>
+          </div>
+    
+        </div>
+        <div class="row my-lg-3">
+  
+          <div class="col-lg-4 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Event Type</label>
+            <!-- Event Types -->
+            <ng-select formControlName="event_type" placeholder="Select the Event Type">
+              <ng-option value="payment">Payment</ng-option>
+              <ng-option value="Free">Free</ng-option>
+            </ng-select>
+          </div>
+          
+          <div class="col-lg-4 my-1 my-lg-0" *ngIf="updateForm.get('event_type')?.value === 'payment'" >
+            <label class="fw-bold text-uppercase">Amount</label>
+            <input formControlName="amount" type="number" class="form-control border-2 input" placeholder="Fill the amount weather the type is payment" [value]="(updateForm.get('event_type')?.value === 'payment') ? '' : 0" />
+          </div>
+    
+        </div>
+        
+        <!-- <div class="row my-lg-3 mt-1">
+          <div class="col-lg-12 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Brochure</label>
+            <input type="file" class="form-control border-2" />
+          </div>
+        </div> -->
+    
+        <div class="row my-lg-3">
+          <div class="col-lg-12 my-1 my-lg-0">
+            <label class="fw-bold text-uppercase">Description</label>
+            <textarea formControlName="summary" rows="4" type="text" class="form-control border-2" placeholder="Give the summary about Event" ></textarea>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="w-100 d-flex justify-content-end">
+        <button routerLink="/event-management" class="btn btn-secondary btn-active text-uppercase fw-bold px-4 py-1 h6 mx-2">Back</button>
+        <button class="btn btn-primary text-uppercase fw-bold px-4 py-1 h6 btn-active" [disabled]="updateForm.pristine || updateForm.invalid" >Update Event</button>
+      </div>
+    </div>
+    
+  </form>
+</div>

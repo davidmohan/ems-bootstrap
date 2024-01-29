@@ -31,8 +31,8 @@ export class AuthComponent {
     this.userService.authUser(this.loginForm.value).subscribe((val: any) => {
       if (val.response) {
         Swal.fire({
-          title: "Login!",
-          text: "Login Success!",
+          title: "Logging!",
+          text: "Successfully Logged In.!",
           icon: "success",
           confirmButtonText: "Move to Dashboard",
           confirmButtonColor: "#00B2FF"
@@ -42,6 +42,13 @@ export class AuthComponent {
             // console.log(val)
             this.router.navigateByUrl('/dash-board')
           }
+        })
+        this.router.navigateByUrl('/dash-board')
+      } else {
+        Swal.fire({
+          title: "Logging!",
+          text: "Logging Failed!",
+          icon: "error",
         })
       }
     })

@@ -1,4 +1,10 @@
-<div class="w-100">
+<div class="text-center" *ngIf="loading">
+  <span class="text-uppercase fw-bold">
+    Loading...
+  </span>
+</div>
+
+<div class="w-100" *ngIf="!loading">
     <div *ngIf="userData.privilege === 'std'">
       <app-modify-student [userData]="userData"></app-modify-student>      
     </div>

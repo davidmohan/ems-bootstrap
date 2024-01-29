@@ -58,7 +58,7 @@
                 <button  class="btn btn-secondary btn-active mx-1" (click)="developingPhase()">
                   <i class="fas fa-cash-register"></i>
                 </button>
-                <button class="btn btn-warning btn-active" (click)="developingPhase()">
+                <button class="btn btn-warning btn-active" [routerLink]="'modify/' + event._id">
                   <i class="fas fa-pencil"></i>
                 </button>
                 <button class="btn btn-danger btn-active ms-1" (click)="deleteTheEvent()">

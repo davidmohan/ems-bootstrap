@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/service/user/user.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,13 @@ export class HomeComponent {
   }
   logout(): void {
     localStorage.clear()
+    Swal.fire({
+      title: "Logged Out!",
+      icon: 'info'
+    })
     this.router.navigateByUrl('/auth')
+  }
+  openProfile(): void {
+    this.router.navigateByUrl('/profile')
   }
 }

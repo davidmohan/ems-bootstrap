@@ -33,6 +33,8 @@ import { LeftMenuComponent } from './home/left-menu/left-menu.component';
 import { Error404Component } from './error-404/error-404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
+import { ModifyEventComponent } from './home/event-management/modify-event/modify-event.component';
+import { ProfileComponent } from './home/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +65,8 @@ import { PdfUploadComponent } from './pdf-upload/pdf-upload.component';
     ViewFeedbackComponent,
     Error404Component,
     PdfUploadComponent,
+    ModifyEventComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
