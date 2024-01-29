@@ -46,7 +46,7 @@ export class ModifyEventComponent implements OnInit {
       });
       // console.log(this.data)
       // this.data = {...this.data}
-    }, 500);
+    }, 1000);
   }
 
   getDate(date: any) {
