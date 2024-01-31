@@ -23,11 +23,17 @@ export class ModifyEventComponent implements OnInit {
     this.depts = depts
     this.event_id = route.snapshot.paramMap.get('event_id');
     eventService.getEventById(this.event_id).subscribe((val: any) => {
-      this.data = { ...val.data };
+      if (val.response) {
+        this.data = val.data
+        this.setFormData()
+      }
     });
+  }
+
+  setFormData() {
     setTimeout(() => {
       this.loading = false;
-      this.updateForm = formBuilder.group({
+      this.updateForm = this.formBuilder.group({
         event_name: [this.data.event_name, [Validators.required]],
         dept_can_participate: [this.data.dept_can_participate, [Validators.required]],
         year_can_participate: [this.data.year_can_participate, [Validators.required]],
@@ -46,7 +52,7 @@ export class ModifyEventComponent implements OnInit {
       });
       // console.log(this.data)
       // this.data = {...this.data}
-    }, 1000);
+    }, 0);
   }
 
   getDate(date: any) {
