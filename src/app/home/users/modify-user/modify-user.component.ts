@@ -18,10 +18,7 @@ export class ModifyUserComponent implements OnInit {
 
   ngOnInit(): void {
     const user_id = this.route.snapshot.paramMap.get('id')
-    this.getUserForUpdate(user_id)
-    setTimeout(() => {
-      this.loading = false
-    }, 1000)
+    this.getUserForUpdate(user_id)  
   }
 
   getUserForUpdate(user_id: string | null) {
@@ -31,6 +28,7 @@ export class ModifyUserComponent implements OnInit {
         this.userSevice.getUserForUpdate(val.data.ref_id, val.data.privilege).subscribe((val: any) => {
           if (val.response) {
             this.userData = val.data
+            this.loading = false
           }
         })
       }

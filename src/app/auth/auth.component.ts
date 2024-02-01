@@ -30,19 +30,8 @@ export class AuthComponent {
   onLoginSubmit(): void {
     this.userService.authUser(this.loginForm.value).subscribe((val: any) => {
       if (val.response) {
-        Swal.fire({
-          title: "Logging!",
-          text: "Successfully Logged In.!",
-          icon: "success",
-          confirmButtonText: "Move to Dashboard",
-          confirmButtonColor: "#00B2FF"
-        }).then((res: any) => {
-          if (res.isConfirmed) {
-            localStorage.setItem('token', val.ref_id)
-            // console.log(val)
-            this.router.navigateByUrl('/dash-board')
-          }
-        })
+        localStorage.setItem('token', val.ref_id)
+        // console.log(val)
         this.router.navigateByUrl('/dash-board')
       } else {
         Swal.fire({

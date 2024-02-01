@@ -11,11 +11,15 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class HomeComponent {
   NavClick: boolean = false
   user!: any
+  loading: boolean = true
   constructor(private router: Router, private userService: UserService) {
     userService.getUser(localStorage.getItem('token')).subscribe((val: any) => {
       if (val.response) {
         userService.setUser(val.data)
         // console.log(val)
+        setTimeout(() => {
+          this.loading = false 
+        }, 2000)
         this.user = userService.getUserFromApp()
       }
     })

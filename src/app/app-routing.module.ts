@@ -27,6 +27,7 @@ import { ProfileComponent } from './home/profile/profile.component';
 
 const routes: Routes = [
   { path:'', component:HomeComponent, children: [
+    { path:'', component:DashBoardComponent },
     { path:'dash-board', component:DashBoardComponent },
     { path:'profile', component: ProfileComponent },
     { path:'event-management', component:EventManagementComponent, children: [
