@@ -21,6 +21,8 @@ export class HomeComponent {
           this.loading = false 
         }, 2000)
         this.user = userService.getUserFromApp()
+        document.title = "EMS | Portal"
+        console.log(this.user)
       }
     })
   }

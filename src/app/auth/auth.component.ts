@@ -16,6 +16,9 @@ export class AuthComponent {
     private router: Router,
     private userService: UserService
   ) {
+
+    document.title = "EMS | AUTH"
+
     this.loginForm = formBuilder.group({
       email: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9-\.]+@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9-]{2,4}$')]],
       password: [null, [Validators.required]]

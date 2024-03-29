@@ -17,6 +17,7 @@ export class DashBoardComponent implements OnInit {
   }
   ngOnInit(): void {
     if (this.user.privilege === 'std') {
+      // document.title = "EMS | " + this.user.privilege
       this.stdService.getStudent().subscribe((val: any) => {
         if (val.response) {
           this.eventService.getAllEventByYearAndDept(val.data.year_of_study, val.data.dept).subscribe((next_val: any) => {
