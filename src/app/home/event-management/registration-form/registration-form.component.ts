@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from 'src/service/events/events.service';
 import { RegistrationService } from 'src/service/registration/registration.service';
 import { StudentService } from 'src/service/student/student.service';
@@ -19,7 +19,8 @@ export class RegistrationFormComponent implements OnInit {
     private stdService: StudentService, 
     private eventService: EventsService,
     private route: ActivatedRoute,
-    private regService: RegistrationService
+    private regService: RegistrationService,
+    private router: Router
     ) {
     stdService.getStudent().subscribe((val: any) => {
       if (val.response) {
@@ -88,14 +89,18 @@ export class RegistrationFormComponent implements OnInit {
           (val.response) ? (
             Swal.fire({
               title: "Success!",
-              text: "Your registration is event. Please present the event On-Time!",
+              text: "Please present the event On-Time!",
               icon: "success",
+            }).then(() => {
+              this.router.navigateByUrl("event-management")
             })
-          ) : (
-            Swal.fire({
-              title: "Failed!",
-              text: "Registration is not counted!",
-              icon: "error",
+            ) : (
+              Swal.fire({
+                title: "Failed!",
+                text: "Registration is not counted!",
+                icon: "error",
+              }).then(() => {
+                this.router.navigateByUrl("event-management")
             })
           )
         })

@@ -44,7 +44,7 @@
             {{ avlUser.first_name + " " + avlUser.last_name }}
           </td>
           <td class="">
-            {{ avlUser.privilege }}
+            {{ (user_type?.value === 'admin') ? 'Admin' : (user_type?.value === 'staff' ? 'Staff' : 'Student')}} 
           </td>
           <td class="" *ngIf="user_type?.value !== 'admin'">
             {{ avlUser.dept }}

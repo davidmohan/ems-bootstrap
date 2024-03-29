@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Environment } from 'src/app/environment';
 import { UserService } from '../user/user.service';
@@ -33,6 +33,11 @@ export class RegistrationService {
 
   getRegistrationById(register_id: string | null) {
     return this.http.get(`${this.root}/${register_id}`)
+  }
+
+  getRegistrationCSV(event_id: string | null) {
+    const headers = new HttpHeaders({ 'Content-Type': 'text/csv' });
+    return this.http.get(`${this.root}/csv/generate/${event_id}`, { responseType: 'blob', headers: headers })
   }
 
 }

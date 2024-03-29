@@ -38,12 +38,12 @@ const routes: Routes = [
         { path: '', component: AllRegistrationsComponent },
         { path: 'v/:register_id', component: ViewRegistrationComponent },
       ]},
-      { path:'feedbacks', component: FeedbacksComponent, children: [
-        { path: ':event_id', component: AllFeedbacksComponent },
+      { path:'feedbacks/:event_id', component: FeedbacksComponent, children: [
+        { path: '', component: AllFeedbacksComponent },
         { path: 'v/:feedback_id', component: ViewFeedbackComponent },
       ]},
       { path:'registration-form/:id', component: RegistrationFormComponent },
-      { path:'feedback-form', component: FeedbackFormComponent },
+      { path:'feedback-form/:id', component: FeedbackFormComponent },
     ]},
     { path:'users', component:UsersComponent, children: [
       { path:'', component: AvailableUsersComponent, },

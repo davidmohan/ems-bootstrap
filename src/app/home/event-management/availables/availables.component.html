@@ -55,7 +55,7 @@
                 <button [routerLink]="'registrations/' + event._id" class="btn btn-primary btn-active">
                   <i class="fas fa-book"></i>
                 </button>
-                <button  class="btn btn-secondary btn-active mx-1" (click)="developingPhase()">
+                <button [routerLink]="'feedbacks/' + event._id" class="btn btn-secondary btn-active mx-1">
                   <i class="fas fa-cash-register"></i>
                 </button>
                 <button class="btn btn-warning btn-active" [routerLink]="'modify/' + event._id">
@@ -72,7 +72,7 @@
                   <i class="fas fa-book"></i>
                   <span class="ms-1">Register</span>
                 </button>
-                <button  class="btn btn-primary h6 text-uppercase fw-bold py-1 btn-active ms-1" *ngIf="event.feedback_status" (click)="developingPhase()">
+                <button [routerLink]="'feedback-form/' + event._id" class="btn btn-primary h6 text-uppercase fw-bold py-1 btn-active ms-1" *ngIf="event.feedback_status">
                   <i class="fas fa-cash-register"></i>
                   <span class="ms-1">Feedback</span>
                 </button>

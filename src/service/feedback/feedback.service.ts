@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StudentService } from '../student/student.service';
 import { Environment } from 'src/app/environment';
@@ -21,11 +21,20 @@ export class FeedbackService {
   }
 
   getFeedbackByEventAndReg(event_id: string | null, reg_no: string) {
-    return this.http.get(`${this.root}/one/:event_id/:reg_no`)
+    return this.http.get(`${this.root}/one/${event_id}/${reg_no}`)
   }
 
   createFeedback(data: any) {
     return this.http.post(`${this.root}/create`, data)
   }
  
+  getFeedbackbyEventId(event_id: string | null) {
+    return this.http.get(`${this.root}/all/${event_id}`)
+  }
+
+  
+  getFeedbacksCSV(event_id: string | null) {
+    const headers = new HttpHeaders({ 'Content-Type': 'text/csv' });
+    return this.http.get(`${this.root}/csv/generate/${event_id}`, { responseType: 'blob', headers: headers })
+  }
 }
